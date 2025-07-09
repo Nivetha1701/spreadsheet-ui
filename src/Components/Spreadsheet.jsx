@@ -1,7 +1,6 @@
 import React, { useState, useRef } from "react"
 import "./Spreadsheet.css"
 
-// Icon components (you'll need to install lucide-react or create these as SVG components)
 const ChevronRight = ({ className }) => (
   <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -29,12 +28,12 @@ const Filter = ({ className }) => (
   </svg>
 )
 
-const Grid3X3 = ({ className }) => (
-  <svg className={className} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-    <rect x="3" y="5" width="18" height="14" rx="2" />
-    <path d="M3 9h18M3 15h18M9 5v14M15 5v14" />
-  </svg>
-)
+// const Grid3X3 = ({ className }) => (
+//   <svg className={className} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+//     <rect x="3" y="5" width="18" height="14" rx="2" />
+//     <path d="M3 9h18M3 15h18M9 5v14M15 5v14" />
+//   </svg>
+// )
 
 const Download = ({ className }) => (
   <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -90,18 +89,6 @@ const Calendar = ({ className }) => (
   </svg>
 )
 
-const Circle = ({ className }) => (
-  <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
-  </svg>
-)
-
-const User = ({ className }) => (
-  <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-  </svg>
-)
-
 const UserWithGlasses = ({ className }) => (
   <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
     {/* Head shape */}
@@ -121,12 +108,6 @@ const UserWithGlasses = ({ className }) => (
 const Link = ({ className }) => (
   <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
-  </svg>
-)
-
-const UserCheck = ({ className }) => (
-  <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
   </svg>
 )
 
@@ -154,10 +135,6 @@ const WavingHandSmile = ({ className }) => (
     </g>
   </svg>
 )
-
-const CellIconImage = ({ className }) => (
-  <img src={require('../images/cell-icon.png')} alt="cell icon" className={className} />
-);
 
 const CircleDown = ({ className }) => (
   <svg className={className} width="1.5em" height="1.5em" viewBox="0 0 32 32" fill="none">
@@ -284,7 +261,6 @@ export default function Spreadsheet() {
   const [editingCell, setEditingCell] = useState(null)
   const [sortColumn, setSortColumn] = useState(null)
   const [sortDirection, setSortDirection] = useState("asc")
-  const [activeTab, setActiveTab] = useState("Q3 Financial Overview")
   const fileInputRef = useRef(null)
 
   const handleCellClick = (row, col) => {
@@ -385,7 +361,7 @@ export default function Spreadsheet() {
   }
 
   const renderCell = (row, col, value) => {
-    const isSelected = selectedCell?.row === row && selectedCell?.col === col
+    // const isSelected = selectedCell?.row === row && selectedCell?.col === col
     const isEditing = editingCell?.row === row && editingCell?.col === col
 
     if (isEditing) {
@@ -556,10 +532,9 @@ export default function Spreadsheet() {
         </div>
       </div>
 
-      {/* Spreadsheet Grid */}
       <div className="grid-container">
         <div className="grid-wrapper">
-          {/* Column Headers */}
+        
           <div className="column-headers">
             <div className="row-number-header">#</div>
             {columns.map((col) => (

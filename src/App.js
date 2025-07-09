@@ -1,5 +1,4 @@
-import logo from './logo.svg';
-import './App.css';
+
 import Spreadsheet from './Components/Spreadsheet';
 
 function App() {
